@@ -1,3 +1,9 @@
+import subprocess
+# import the benchmark from bench.py
+import sys
+sys.path.append("bench")
+import bench
+
 """
 Python wrapper around ALEX to call and record values from ALEX
 """
