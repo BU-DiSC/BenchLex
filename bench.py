@@ -29,7 +29,13 @@ def output(result):
     out = tuple(int(float(i.split()[0])) for i in out)
     return out
 
-def main():
+def main(x = "./build/benchmark \
+--keys_file=resources/sample_keys.bin \
+--keys_file_type=binary \
+--init_num_keys=500 \
+--total_num_keys=1000 \
+--batch_size=1000 \
+--insert_frac=0.5"):
     args = loadArgs()
     result = call_benchmark(args)
     out = output(result)
