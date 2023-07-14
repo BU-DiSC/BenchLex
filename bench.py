@@ -12,7 +12,7 @@ def loadArgs():
     return vars(parser.parse_args())
     
 def call_benchmark(args):
-    result = subprocess.run(f"./build/benchmark \
+    result = subprocess.run(f"./../ALEX/build/benchmark \
     --keys_file={args['keys_file']} \
     --keys_file_type={args['keys_file_type']} \
     --init_num_keys={args['init_num_keys']} \
