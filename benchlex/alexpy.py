@@ -22,15 +22,14 @@ class AlexPy():
         user =  input("user: ")
         path = "/home/" + user + "/ALEX/build/benchmark"
         cmd = path + f"\
-    --keys_file={self.keys_file} \
-    --keys_file_type={self.keys_file_type} \
-    --init_num_keys={self.init_num_keys} \
-    --total_num_keys={self.total_num_keys} \
-    --batch_size={self.batch_size} \
-    --insert_frac={self.insert_frac}"
+        --keys_file={self.keys_file} \
+        --keys_file_type={self.keys_file_type} \
+        --init_num_keys={self.init_num_keys} \
+        --total_num_keys={self.total_num_keys} \
+        --batch_size={self.batch_size} \
+        --insert_frac={self.insert_frac}"
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True).stdout
         return result.splitlines()[-1]
 
     def bench(self):
-        
         return
