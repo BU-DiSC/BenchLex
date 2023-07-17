@@ -31,5 +31,11 @@ class AlexPy():
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True).stdout
         return result.splitlines()[-1]
 
-    def bench(self):
-        return
+    # def bench(self):
+    def main(self):
+        result = AlexPy("resources/sample_keys.bin","binary",500,1000,1000,0.5)
+        out = output(result)
+        print(out)
+
+if __name__ == "__main__":
+    main()
