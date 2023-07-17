@@ -11,15 +11,6 @@ def loadArgs():
     parser.add_argument('--insert_frac', help='insert fraction', required=True)
     return vars(parser.parse_args())
     
-def call_benchmark(args):
-    result = subprocess.run(f"./../ALEX/build/benchmark \
-    --keys_file={args['keys_file']} \
-    --keys_file_type={args['keys_file_type']} \
-    --init_num_keys={args['init_num_keys']} \
-    --total_num_keys={args['total_num_keys']} \
-    --batch_size={args['batch_size']} \
-    --insert_frac={args['insert_frac']}", shell=True, capture_output=True, text=True).stdout
-    return result.splitlines()[-1]
 
 def output(result):
     out = result.strip().split("\t")[1:]
@@ -28,13 +19,3 @@ def output(result):
     out = tuple(out)
     out = tuple(int(float(i.split()[0])) for i in out)
     return out
-
-def main():
-    args = loadArgs()
-    result = call_benchmark(args)
-    out = output(result)
-    print(out)
-
-
-if __name__ == "__main__":
-    main()
