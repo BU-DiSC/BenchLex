@@ -39,6 +39,6 @@ class AlexPy():
         aResult = AlexPy(self.keys_file,self.keys_file_type,self.init_num_keys,self.total_num_keys,self.batch_size,self.insert_frac, self.lookup_distribution)
         result = AlexPy.run(aResult)
         out = output(result)
-        print(out)
+        return out
 
 
