@@ -34,7 +34,7 @@ class AlexPy():
 
     # def bench(self):
     def main(self):
-        aResult = AlexPy("resources/sample_keys.bin","binary",500,1000,1000,0.5)
+        aResult = AlexPy(self.keys_file,self.keys_file_type,self.init_num_keys,self.total_num_keys,self.batch_size,self.insert_frac)
         result = AlexPy.run(aResult)
         out = output(result)
         print(out)
