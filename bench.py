@@ -9,6 +9,7 @@ def loadArgs():
     parser.add_argument('--total_num_keys', help='total num keys', required=True)
     parser.add_argument('--batch_size', help='batch size', required=True)
     parser.add_argument('--insert_frac', help='insert fraction', required=True)
+    parser.add_argument('--lookup_distribution', help='lookup_distribution', required=True)
     return vars(parser.parse_args())
     
 
