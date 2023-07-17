@@ -1,9 +1,6 @@
 import subprocess
 # import the benchmark from bench.py
 user =  input("user: ")
-import sys
-sys.path.insert(0,"/home/" + user + "/BenchLex/")
-from bench import *
 
 """
 Python wrapper around ALEX to call and record values from ALEX
@@ -33,12 +30,22 @@ class AlexPy():
         --lookup_distribution={self.lookup_distribution}"
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True).stdout
         return result.splitlines()[-1]
+    
+    
+    def output(result):
+        out = result.strip().split("\t")[1:]
+        out[0] = out[0][:-1]
+        out[1] = out[1][:-1]
+        out = tuple(out)
+        out = tuple(int(float(i.split()[0])) for i in out)
+        return out
+
 
     # def bench(self):
     def main(self):
         aResult = AlexPy(self.keys_file,self.keys_file_type,self.init_num_keys,self.total_num_keys,self.batch_size,self.insert_frac, self.lookup_distribution)
         result = AlexPy.run(aResult)
-        out = output(result)
+        out = AlexPy.output(result)
         return out
 
 
