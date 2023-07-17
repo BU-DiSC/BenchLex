@@ -12,11 +12,3 @@ def loadArgs():
     parser.add_argument('--lookup_distribution', help='lookup_distribution', required=True)
     return vars(parser.parse_args())
     
-
-def output(result):
-    out = result.strip().split("\t")[1:]
-    out[0] = out[0][:-1]
-    out[1] = out[1][:-1]
-    out = tuple(out)
-    out = tuple(int(float(i.split()[0])) for i in out)
-    return out
