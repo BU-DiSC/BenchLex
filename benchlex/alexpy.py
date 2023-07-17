@@ -1,7 +1,8 @@
 import subprocess
 # import the benchmark from bench.py
+user =  input("user: ")
 import sys
-sys.path.append("bench")
+sys.path.insert(0,"/home/" + user + "/BenchLex/")
 from bench import *
 
 """
@@ -19,7 +20,7 @@ class AlexPy():
         
 
     def run(self):
-        user =  input("user: ")
+       
         path = "/home/" + user + "/ALEX/build/benchmark"
         cmd = path + f"\
         --keys_file={self.keys_file} \
@@ -33,9 +34,9 @@ class AlexPy():
 
     # def bench(self):
     def main(self):
-        result = AlexPy("resources/sample_keys.bin","binary",500,1000,1000,0.5)
+        aResult = AlexPy("resources/sample_keys.bin","binary",500,1000,1000,0.5)
+        result = AlexPy.run(aResult)
         out = output(result)
         print(out)
 
-if __name__ == "__main__":
-    main()
+
