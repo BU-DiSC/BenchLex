@@ -8,4 +8,4 @@ class Experiment1():
         from experiment import experiment
 
     def run(self):
-        pass
+        print("Running Experiment1...")
