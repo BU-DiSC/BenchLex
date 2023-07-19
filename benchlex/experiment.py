@@ -2,7 +2,7 @@ import alexpy
 import os
 
 class experiment():
-    def __init__(self,lookup_distribution) -> None:
+    def __init__(self,lookup_distribution):
         self.lookup_distribution = lookup_distribution
         
     def write(res,filename):
@@ -18,7 +18,7 @@ class experiment():
         inserts = []
         ops = []
         for i in range(x):
-            experiment1 = alexpy.AlexPy("resources/sample_keys.bin","binary",500,1000,1000,0.5,self.lookup_distribution)
+            experiment1 = alexpy.AlexPy("/home/"+ alexpy.user() +"/BenchLex/resources/sample_keys.bin","binary",500,1000,1000,0.5,self.lookup_distribution)
             result = experiment1.main()
             experiment.write(result,filename)
             lookups.append(result[0])
