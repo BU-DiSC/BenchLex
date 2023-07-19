@@ -1,6 +1,6 @@
-import alexpy
+from alexpy import AlexPy
 import os
-import experiment
+from experiment import experiment
 class Experiment1():
     def __init__(self) -> None:
         pass
