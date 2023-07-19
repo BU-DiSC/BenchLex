@@ -8,6 +8,8 @@ from benchlex.experiments.Experiment3 import Experiment3
 from benchlex.experiments.Experiment4 import Experiment4
 from benchlex.alexpy import AlexPy
 
+user = input("user: ")
+
 def loadArgs():
     parser = argparse.ArgumentParser(description='Arguments for benchmark')
     parser.add_argument('--keys_file', help='keys file', required=True)
@@ -22,7 +24,6 @@ def loadArgs():
 def menu():
     parser = argparse.ArgumentParser(description='modes for bench.py')
     parser.add_argument('--run_experiment', help='Run experiment', required=True)
-    # parser.add_argument('--nb_of_runs', help='Nb of times to run experiment', required=True)
     return vars(parser.parse_args())
 
 def call(args):
@@ -32,19 +33,26 @@ def call(args):
 
 def experim():
     args = menu()
-    print(args)
+    # print(args)
     nb = call(args)
-    print(nb)
+    # print(nb)
     if(nb == "1"):
         print("Experiment1")
-        Experiment1.run()
+        ex = Experiment1(user)
+        ex.run()
         
     elif(nb == "2"):
-        Experiment2.run()
+        print("Experiment2")
+        ex = Experiment2(user)
+        ex.run()
     elif(nb == "3"):
-        Experiment3.run()
+        print("Experiment3")
+        ex = Experiment3(user)
+        ex.run()
     elif(nb == "4"):
-        Experiment4.run()
+        print("Experiment4")
+        ex = Experiment4(user)
+        ex.run()
     else:
         print("Error: experiment not found")
 
