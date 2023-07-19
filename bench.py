@@ -1,13 +1,12 @@
 import subprocess
 import argparse
 import sys
-sys.path.insert(0,"./benchlex/experiments")
-import experiment1
-import experiment2
-import experiment3
-import experiment4
-sys.path.insert(0,"./benchlex/")
-import alexpy
+import os
+from benchlex.experiments.Experiment1 import Experiment1
+from benchlex.experiments.Experiment2 import Experiment2
+from benchlex.experiments.Experiment3 import Experiment3
+from benchlex.experiments.Experiment4 import Experiment4
+from benchlex.alexpy import AlexPy
 
 def loadArgs():
     parser = argparse.ArgumentParser(description='Arguments for benchmark')
