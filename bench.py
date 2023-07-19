@@ -22,28 +22,36 @@ def loadArgs():
 def menu():
     parser = argparse.ArgumentParser(description='modes for bench.py')
     parser.add_argument('--run_experiment', help='Run experiment', required=True)
-    parser.add_argument('--nb_of_runs', help='Nb of times to run experiment', required=True)
+    # parser.add_argument('--nb_of_runs', help='Nb of times to run experiment', required=True)
     return vars(parser.parse_args())
 
 def call(args):
-    nb = subprocess.run(f'--run_experiment={args}')
+    nb = args["run_experiment"]
+    return nb
+
 
 def experim():
     args = menu()
-    nb = int(call(args))
-    if(nb == 1):
+    print(args)
+    nb = call(args)
+    print(nb)
+    if(nb == "1"):
+        print("Experiment1")
         Experiment1.run()
-    elif(nb == 2):
+        
+    elif(nb == "2"):
         Experiment2.run()
-    elif(nb == 3):
-        experiment3.run()
-    elif(nb == 4):
+    elif(nb == "3"):
+        Experiment3.run()
+    elif(nb == "4"):
         Experiment4.run()
     else:
         print("Error: experiment not found")
 
 
-
+if __name__ == "__main__":
+    #default'
+    experim()
 
 
 
