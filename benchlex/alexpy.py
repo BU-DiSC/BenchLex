@@ -1,6 +1,6 @@
 import subprocess
 # import the benchmark from bench.py
-user =  input("user: ")
+
 
 """
 Python wrapper around ALEX to call and record values from ALEX
@@ -15,11 +15,13 @@ class AlexPy():
         self.batch_size = batch_size
         self.insert_frac = insert_frac
         self.lookup_distribution = lookup_distribution
-        
+    
+    def user():
+        user =  input("user: ")
+        return user
 
     def run(self):
-       
-        path = "/home/" + user + "/ALEX/build/benchmark"
+        path = "/home/" + AlexPy.user() + "/ALEX/build/benchmark"
         cmd = path + f"\
         --keys_file={self.keys_file} \
         --keys_file_type={self.keys_file_type} \
