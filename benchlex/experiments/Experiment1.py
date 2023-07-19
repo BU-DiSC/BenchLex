@@ -1,4 +1,3 @@
-from alexpy import AlexPy
 import os
 from experiment import experiment
 class Experiment1():
