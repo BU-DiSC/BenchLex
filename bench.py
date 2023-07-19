@@ -8,7 +8,6 @@ from benchlex.experiments.Experiment3 import Experiment3
 from benchlex.experiments.Experiment4 import Experiment4
 from benchlex.alexpy import AlexPy
 
-user = input("user: ")
 
 def loadArgs():
     parser = argparse.ArgumentParser(description='Arguments for benchmark')
@@ -37,20 +36,16 @@ def experim():
     nb = call(args)
     # print(nb)
     if(nb == "1"):
-        print("Experiment1")
         ex = Experiment1(user)
         ex.run()
         
     elif(nb == "2"):
-        print("Experiment2")
         ex = Experiment2(user)
         ex.run()
     elif(nb == "3"):
-        print("Experiment3")
         ex = Experiment3(user)
         ex.run()
     elif(nb == "4"):
-        print("Experiment4")
         ex = Experiment4(user)
         ex.run()
     else:
@@ -59,6 +54,7 @@ def experim():
 
 if __name__ == "__main__":
     #default'
+    user = input("user: ")
     experim()
 
 
