@@ -32,13 +32,13 @@ def experim():
     args = menu()
     nb = int(call(args))
     if(nb == 1):
-        experiment1.run()
+        Experiment1.run()
     elif(nb == 2):
-        experiment2.run()
+        Experiment2.run()
     elif(nb == 3):
         experiment3.run()
     elif(nb == 4):
-        experiment4.run()
+        Experiment4.run()
     else:
         print("Error: experiment not found")
 
