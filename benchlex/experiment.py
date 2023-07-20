@@ -29,5 +29,6 @@ class experiment():
 
 if __name__ == "__main__":
     #default'
-    test = experiment("uniform", "sbasil")
+    user = input("user: ")
+    test = experiment("uniform", user)
     print(test.runThrough(1))
