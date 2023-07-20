@@ -12,7 +12,7 @@ class experiment():
             f.close()
 
     def runThrough(self, x):
-        filename = "/home/sbasil/BenchLex/benchlex/output.txt"
+        filename = f"/home/{self.user}/BenchLex/benchlex/output.txt"
         if os.path.isfile(filename):
             os.remove(filename)
         lookups = []
