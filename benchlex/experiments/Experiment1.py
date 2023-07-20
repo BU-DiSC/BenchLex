@@ -17,9 +17,9 @@ class Experiment1():
         rows = []
         filename = "data.csv"
         for i in range(101): # i / 100 is insert frac
-            test = experiment("uniform", self.user, 0.5, f"/home/{self.user}/bods/workloads/createdata_N1000_K{i}_L10_S1234_a1_b1_P4.txt","text", i, 10)
+            test = experiment("uniform", user, 0.5, f"/home/{user}/bods/workloads/createdata_N{1000}_K{10}_L{i}_S1234_a1_b1_P4.txt","text", 10, i, 1000)
             test.createKeysFile()
-            rows.append(test.runThrough(100)) #run each insert_frac 1000 times, calc mean
+            rows.append(test.runThrough(1000)) #run each insert_frac 1000 times, calc mean
             print(i)
 
         with open(filename, 'w') as csvfile: 
