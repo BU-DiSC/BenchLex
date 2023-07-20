@@ -1,6 +1,7 @@
 import os
+user = input("user: ")
 import sys
-sys.path.insert(0, './..')
+sys.path.insert(0, f'/home/{user}/BenchLex/benchlex/')
 
 from experiment import experiment
 class Experiment2():
