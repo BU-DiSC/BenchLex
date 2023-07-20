@@ -54,7 +54,7 @@ if __name__ == "__main__":
     user = input("user: ")
 
     #for i in range(101):
-        #test = experiment("uniform", user, 0.5, f"/home/sbasil/bods/workloads/createdata_N1000_K{1}_L{1}_S1234_a1_b1_P4.txt","text", 1, 1)
+        #test = experiment("uniform", user, 0.5, f"/home/{user}/bods/workloads/createdata_N1000_K{1}_L{1}_S1234_a1_b1_P4.txt","text", 1, 1)
         #test.createKeysFile()
         #print(test.runThrough(5))
 
@@ -64,7 +64,7 @@ if __name__ == "__main__":
     rows = []
     filename = "data.csv"
     for i in range(101): # i / 100 is insert frac
-        test = experiment("uniform", user, 0.5, f"/home/sbasil/bods/workloads/createdata_N1000_K{i}_L10_S1234_a1_b1_P4.txt","text", i, 10)
+        test = experiment("uniform", user, 0.5, f"/home/{user}/bods/workloads/createdata_N1000_K{i}_L10_S1234_a1_b1_P4.txt","text", i, 10)
         test.createKeysFile()
         rows.append(test.runThrough(100)) #run each insert_frac 1000 times, calc mean
         print(i)
