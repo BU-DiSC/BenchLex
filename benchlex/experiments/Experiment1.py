@@ -1,11 +1,11 @@
 import os
-user = input("user: ")
 import sys
-sys.path.insert(0, f'/home/{user}/BenchLex/benchlex/')
 
-from experiment import experiment
 class Experiment1():
-    def __init__(self) -> None:
-        pass
+    def __init__(self,user) -> None:
+        self.user = user
+        sys.path.insert(0, f'/home/{user}/BenchLex/benchlex/')
+        from experiment import experiment
+
     def run(self):
-        pass
+        print("Running Experiment1...")
