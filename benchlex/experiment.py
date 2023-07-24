@@ -53,12 +53,6 @@ class experiment():
 if __name__ == "__main__":
     #default'
     user = input("user: ")
-
-    #for i in range(101):
-    #test = experiment("uniform", user, 0.5, f"/home/sbasil/bods/workloads/createdata_N1000_K{1}_L{1}_S1234_a1_b1_P4.txt","text", 0.1, 1)
-    #test.createKeysFile()
-    #print(test.runThrough(1))
-
     
     #writing to csv
     fields = ["K","L", "lookups/sec", "inserts/sec", "ops/sec"]
