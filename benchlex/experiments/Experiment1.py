@@ -16,12 +16,13 @@ class Experiment1():
         fields = ["K","L", "lookups/sec", "inserts/sec", "ops/sec"]
         rows = []
         filename = "data.csv"
-        for i in range(101): # i / 100 is insert frac
-            test = experiment("uniform", self.user, 0.5, f"/home/{self.user}/bods/workloads/createdata_N{1000}_K{10}_L{i}_S1234_a1_b1_P4.txt","text", 10, i, 1000)
-            test.createKeysFile()
-            rows.append(test.runThrough(1000)) #run each insert_frac 1000 times, calc mean
-            print(i)
-
+        for k in range(101):
+            for l in range(101):
+                test = experiment("uniform", self.user, 0.5, f"/home/{self.user}/bods/workloads/createdata_N{10000}_K{k}_L{l}_S1234_a1_b1_P4.txt","text", k, l, 10000)
+                test.createKeysFile()
+                rows.append(test.runThrough(100)) #run each insert_frac 10 times, calc mean
+                print(k, l)
+    
         with open(filename, 'w') as csvfile: 
             # creating a csv writer object 
             csvwriter = csv.writer(csvfile) 
