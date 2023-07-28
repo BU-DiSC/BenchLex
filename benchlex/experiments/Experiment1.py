@@ -19,7 +19,7 @@ class Experiment1():
         for k in range(101):
             for l in range(101):
                 if not(k == 7 and l == 60):
-                    test = experiment("uniform", self.user, 0.5, f"/home/{self.user}/bods/workloads/createdata_N{10000}_K{k}_L{l}_S1234_a1_b1_P4.txt","text", k, l, 10000)
+                    test = experiment("uniform", self.user, 0.5, f"/home/{self.user}/bods/workloads/createdata_N{1000000}_K{k}_L{l}_S1234_a1_b1_P4.txt","text", k, l, 1000000)
                     test.createKeysFile()
                     rows.append(test.runThrough(10)) #run each insert_frac 10 times, calc mean
                     print(k, l)
