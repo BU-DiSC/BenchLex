@@ -27,6 +27,7 @@ class experiment():
         lookups = []
         inserts = []
         ops = []
+        load = []
         for i in range(x):
             experiment1 = alexpy.AlexPy(self.keys_file,self.keys_file_type,self.N / 2,self.N,self.N,self.insert_frac,self.lookup_distribution, self.user)
             result = experiment1.main()
@@ -34,7 +35,8 @@ class experiment():
             lookups.append(result[0])
             inserts.append(result[1])
             ops.append(result[2])
-        return [self.K, self.L, sum(lookups)/x, sum(inserts)/x, sum(ops)/x] #cast K,L to int
+            load.append(result[3])
+        return [self.K, self.L, sum(lookups)/x, sum(inserts)/x, sum(ops)/x, sum(load)/x] #cast K,L to int
 
 
     def createKeysFile(self):
@@ -55,15 +57,16 @@ if __name__ == "__main__":
     user = input("user: ")
     
     #writing to csv
-    fields = ["K","L", "lookups/sec", "inserts/sec", "ops/sec"]
+    fields = ["K","L", "lookups/sec", "inserts/sec", "ops/sec", "loadtime"]
     rows = []
     filename = "data.csv"
     for k in range(101):
         for l in range(101):
-            test = experiment("uniform", user, 0.5, f"/home/{user}/bods/workloads/createdata_N{10000}_K{k}_L{l}_S1234_a1_b1_P4.txt","text", k, l, 10000)
-            test.createKeysFile()
-            rows.append(test.runThrough(100)) #run each insert_frac 10 times, calc mean
-            print(k, l)
+            if not(k == 7 and l == 60):
+                test = experiment("uniform", user, 0.5, f"/home/{user}/bods/workloads/createdata_N{10000}_K{k}_L{l}_S1234_a1_b1_P4.txt","text", k, l, 10000)
+                test.createKeysFile()
+                rows.append(test.runThrough(10)) #run each insert_frac 10 times, calc mean
+                print(k, l)
     
     with open(filename, 'w') as csvfile: 
         # creating a csv writer object 
