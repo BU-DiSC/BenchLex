@@ -26,7 +26,8 @@ class AlexPy():
         --total_num_keys={self.total_num_keys} \
         --batch_size={self.batch_size} \
         --insert_frac={self.insert_frac}\
-        --lookup_distribution={self.lookup_distribution}"
+        --lookup_distribution={self.lookup_distribution}\
+        --bulk_load"
 
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True).stdout
         return result.splitlines()[-1]
