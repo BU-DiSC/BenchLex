@@ -27,6 +27,7 @@ class AlexPy():
         --batch_size={self.batch_size} \
         --insert_frac={self.insert_frac}\
         --lookup_distribution={self.lookup_distribution}"
+
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True).stdout
         return result.splitlines()[-1]
     
@@ -36,7 +37,7 @@ class AlexPy():
         out[0] = out[0][:-1]
         out[1] = out[1][:-1]
         out = tuple(out)
-        out = tuple(int(float(i.split()[0])) for i in out)
+        out = tuple(float(i.split()[0]) for i in out)
         return out
 
 
@@ -48,3 +49,8 @@ class AlexPy():
         return out
 
 
+#if __name__ == "__main__":
+    
+    #user = input("user: ")
+    #experiment1 = AlexPy(f"/home/{user}/bods/workloads/createdata_N10000_K7_L9_S1234_a1_b1_P4.txt","text",5000,10000,10000,0.5,"uniform", user)
+    #print(experiment1.main())
