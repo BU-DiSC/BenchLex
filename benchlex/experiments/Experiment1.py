@@ -15,8 +15,8 @@ class Experiment1():
 
         fields = ["K","L", "lookups/sec", "inserts/sec", "ops/sec", "loadtime"]
         rows = []
-        filename = "data10.csv"
-        N = 1000000
+        filename = "data10millionwithbulk.csv"
+        N = 10000000
         for k in range(0,101,10):
             for l in range(0,101,10):
                 if not(k == 7 and l == 60):
