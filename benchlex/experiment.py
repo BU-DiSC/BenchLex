@@ -46,10 +46,10 @@ class experiment():
         -K {self.K} \
         -L {self.L} \
         -S 1 \
-        -o /home/{self.user}/bods/workloads/createdata_N{self.N}_K{self.K}_L{self.L}_S1234_a1_b1_P4.txt \
+        -o /home/{self.user}/bods/workloads/createdata_N{self.N}_K{self.K}_L{self.L}_S1234_a1_b1_P0.txt \
         -a 1\
         -b 1\
-        -P 4"
+        -P 0"
         subprocess.run(cmd, shell=True, capture_output=True, text=True)
         
 if __name__ == "__main__":
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     for k in range(101):
         for l in range(101):
             if not(k == 7 and l == 60):
-                test = experiment("uniform", user, 0.5, f"/home/{user}/bods/workloads/createdata_N{10000}_K{k}_L{l}_S1234_a1_b1_P4.txt","text", k, l, 10000)
+                test = experiment("uniform", user, 0.5, f"/home/{user}/bods/workloads/createdata_N{100000}_K{k}_L{l}_S1234_a1_b1_P0.txt","text", k, l, 100000)
                 test.createKeysFile()
                 rows.append(test.runThrough(10)) #run each insert_frac 10 times, calc mean
                 print(k, l)
